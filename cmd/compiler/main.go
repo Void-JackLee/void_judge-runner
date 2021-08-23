@@ -80,7 +80,20 @@ func handle(cfg *CompileConfig) *RunResult {
 }
 
 func main() {
-	m := loadConfig()
+	// Read config file from args
+	args := os.Args
+	if (len(args) < 2) {
+		fmt.Printf("Usage:\n\tcompiler <config.json>\n\tcompiler init\n");
+		return
+	}
+
+	if (args[1] == "init") {
+		initConfig()
+		return
+	}
+	//
+
+	m := loadConfig(args[1])
 	log = runner.InitLogger(m.LogPath, m.Verbose)
 	r := handle(m)
 	res, _ := json.Marshal(r)
