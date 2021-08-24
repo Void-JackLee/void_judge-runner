@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/koding/multiconfig"
-	"strings"
-	"fmt"
-	"os"
 	"encoding/json"
+	"fmt"
+	"github.com/koding/multiconfig"
+	"os"
+	"strings"
 )
 
 type CompileConfig struct {
@@ -38,12 +38,15 @@ func initConfig() {
 	file, e := os.Create("compiler_config.json")
 	if e != nil {
 		fmt.Printf("Cannot create file compiler_config.json")
+		return
 	}
 
 	encoder := json.NewEncoder(file)
 	encode_err := encoder.Encode(init_data)
 	if (encode_err != nil) {
 		fmt.Printf("Cannot create file compiler_config.json")
+		file.Close()
+		return
 	}
 	file.Close()
 }

@@ -1,0 +1,1 @@
+{"CPU":3,"Memory":256,"Output":16,"Command":"./main","OneTimeCalls":["execve"],"AllowedCalls":["read","write","brk","fstat","uname","mmap","arch_prctl","exit_group","readlink","access","mprotect"],"AdditionCalls":null,"Verbose":false,"Name":"","LogPath":"./runner.log"}

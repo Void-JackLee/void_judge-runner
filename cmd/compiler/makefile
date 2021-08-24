@@ -1,5 +1,6 @@
 default:
 	go build .
+	./compiler init
 
 test-c:
 	@cd ./tests/c/;../../compiler
